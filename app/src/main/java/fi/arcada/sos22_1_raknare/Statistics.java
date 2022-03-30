@@ -2,6 +2,7 @@ package fi.arcada.sos22_1_raknare;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Statistics {
@@ -12,9 +13,11 @@ public class Statistics {
 
         ArrayList<DataItem> sampleData = new ArrayList<>();
         String[] names = { "Fili", "Kili", "Balin", "Dwalin", "Ori", "Nori", "Dori", "Gloin", "Oin", "Bifur", "Bofur", "Bombur", "Thorin" };
+        double[] ages = { 253.0, 397.0, 382.0, 130.0, 201.0, 252.0, 270.0, 384.0, 163.0, 132.0, 173.0, 248.0, 139.0, 139.0, 139.0 };
 
-        for (String name: names) {
-            sampleData.add(new DataItem(name, rnd.nextInt(300)+100));
+        for (int i = 0; i < names.length; i++) {
+            // sampleData.add(new DataItem(name, rnd.nextInt(300)+100));
+            sampleData.add(new DataItem(names[i], ages[i]));
         }
         return sampleData;
     }
@@ -77,5 +80,31 @@ public class Statistics {
         // Till sist, ta roten av variansen och returnera
         return Math.sqrt(variance);
 
+    }
+
+    // Typvärde (mode)
+    public static double calcMode(ArrayList<Double> dataset) {
+        HashMap<Double, Integer> valueCount = new HashMap<>();
+
+        for (double dataValue: dataset) {
+            Integer count = valueCount.get(dataValue);
+
+            if (count == null) count = 0;
+            valueCount.put(dataValue, count + 1);
+        }
+
+        int maxCount = 0;
+        double modeValue = 0.0;
+
+        for (Double dataValue: valueCount.keySet()) {
+            Integer curCount = valueCount.get(dataValue);
+
+            if (curCount > maxCount) {
+                maxCount = curCount;
+                modeValue = dataValue;
+            }
+        }
+
+        return modeValue;
     }
 }
