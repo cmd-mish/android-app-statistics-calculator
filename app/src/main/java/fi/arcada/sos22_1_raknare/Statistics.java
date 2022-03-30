@@ -41,6 +41,16 @@ public class Statistics {
         return sorted;
     }
 
+    //min
+    public static double getMin(ArrayList<DataItem> dataItems) {
+        return getSorted(getDataValues(dataItems)).get(0);
+    }
+
+    // max
+    public static double getMax(ArrayList<DataItem> dataItems) {
+        return getSorted(getDataValues(dataItems)).get(dataItems.size() - 1);
+    }
+
     // Medelvärde
     public static double calcMean(ArrayList<Double> dataset) {
         double sum = 0;

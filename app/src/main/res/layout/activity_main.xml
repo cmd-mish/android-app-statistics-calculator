@@ -6,24 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/helloText"
-        android:layout_width="326dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="16dp"
-        android:text="-"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/editTextName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
-
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_width="104dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Skriv ditt namn!"
+        android:hint="Namn"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,16 +22,16 @@
         android:id="@+id/btnOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="52dp"
         android:onClick="btnClick"
         android:text="OK"
-        app:layout_constraintStart_toEndOf="@+id/editTextName"
+        app:layout_constraintStart_toEndOf="@+id/editValue"
         app:layout_constraintTop_toTopOf="@+id/editTextName" />
 
     <TextView
         android:id="@+id/textViewMean"
-        android:layout_width="219dp"
-        android:layout_height="144dp"
+        android:layout_width="246dp"
+        android:layout_height="226dp"
         android:layout_marginStart="16dp"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/button"
@@ -51,20 +41,41 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:onClick="calculate"
         android:text="Räkna"
-        app:layout_constraintStart_toStartOf="@+id/helloText"
-        app:layout_constraintTop_toBottomOf="@+id/helloText" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextName"
+        tools:layout_editor_absoluteX="32dp" />
 
     <TextView
         android:id="@+id/datasetOut"
-        android:layout_width="362dp"
-        android:layout_height="267dp"
+        android:layout_width="348dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="48dp"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/datasetRecyclerView"
+        android:layout_width="415dp"
+        android:layout_height="206dp"
+        android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMean" />
+
+    <EditText
+        android:id="@+id/editValue"
+        android:layout_width="106dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Värde"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/editTextName"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
