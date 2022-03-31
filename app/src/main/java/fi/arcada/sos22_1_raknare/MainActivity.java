@@ -45,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calculate(View view) {
-        String calcOutput = String.format("Minimivärde: %.2f\nMaximivärde: %.2f",
+        String calcOutput = String.format("Minimivärde: %.2f\nMaximivärde: %.2f\nMedelvärde: %.2f\nMedianvärde: %.2f",
                 Statistics.getMin(dataItems),
-                Statistics.getMax(dataItems)
+                Statistics.getMax(dataItems),
+                Statistics.getAverage(dataItems),
+                Statistics.getMedian(dataItems)
         );
 
         textViewOutput.setText(calcOutput);
