@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
+        android:onClick="addItem"
         android:text="OK"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -55,11 +56,21 @@
     <TextView
         android:id="@+id/textViewOutput"
         android:layout_width="303dp"
-        android:layout_height="156dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="197dp"
+        android:layout_marginTop="24dp"
         android:text="Output here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonCalculate" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDataset"
+        android:layout_width="409dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
