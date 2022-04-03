@@ -58,7 +58,7 @@
         android:layout_width="303dp"
         android:layout_height="197dp"
         android:layout_marginTop="24dp"
-        android:text="Output here"
+        android:text="Tryck på &quot;Räkna ut&quot; för att visa statistiken"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonCalculate" />

@@ -9,11 +9,8 @@ public class Statistics {
     // Metod för att generera samle datamängd
     public static ArrayList<DataItem> getSampleDataset() {
         ArrayList<DataItem> sampleData = new ArrayList<>();
-        //String[] names = { "Fili", "Kili", "Balin", "Dwalin", "Ori", "Nori", "Dori", "Gloin", "Oin", "Bifur", "Bofur", "Bombur", "Someone", "Someone2" };
-        // double[] ages = { 253.0, 397.0, 382.0, 130.0, 201.0, 252.0, 270.0, 384.0, 163.0, 132.0, 173.0, 248.0 };
-
-        String[] names = {};
-        double[] ages = {};
+        String[] names = { "Fili", "Kili", "Balin", "Dwalin", "Ori", "Nori", "Dori", "Gloin", "Oin", "Bifur", "Bofur", "Bombur" };
+        double[] ages = { 253.0, 397.0, 382.0, 130.0, 201.0, 252.0, 270.0, 384.0, 163.0, 132.0, 173.0, 248.0 };
 
         for (int i = 0; i < names.length; i++) {
             sampleData.add(new DataItem(names[i], ages[i]));
@@ -152,5 +149,4 @@ public class Statistics {
     public static double calcQR(ArrayList<DataItem> dataItems) {
         return calcUQ(dataItems) - calcLQ(dataItems);
     }
-
 }

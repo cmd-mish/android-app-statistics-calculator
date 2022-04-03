@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DatasetViewAdapter adapter;
 
-    // Skapar en ArrayList med värden och DataItem objekt
-    ArrayList<Double> dataset = new ArrayList<>();
+    // Skapar ett DataItem objekt
     ArrayList<DataItem> dataItems = new ArrayList<>();
 
     @Override
@@ -37,26 +36,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewDataset);
 
         dataItems = Statistics.getSampleDataset();
-        dataset = Statistics.getValues(dataItems);
 
         adapter = new DatasetViewAdapter(dataItems, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        for (Double data: dataset) {
-            textOut += data + ", ";
-        }
-
-       /* for (DataItem item: dataItems) {
-            textOut += item.getName() + " " + item.getValue() + "\n";
-        } */
-
-        textViewOutput.setText(textOut);
     }
 
     public void calculate(View view) {
         String calcOutput = String.format("Minimivärde: %.2f\nMaximivärde: %.2f\nMedelvärde: %.2f" +
-                        "\nMedianvärde: %.2f\nTypvärde: %.2f\nStandardavvikelse: %.2f\nNedre kvartile: %.2f" +
+                        "\nMedianvärde: %.2f\nTypvärde: %.2f\nStandardavvikelse: %.2f\nNedre kvartil: %.2f" +
                         "\nÖvre kvartil: %.2f\nKvartilavstånd: %.2f",
                 Statistics.calcMin(dataItems),
                 Statistics.calcMax(dataItems),
@@ -81,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
             adapter = new DatasetViewAdapter(dataItems, this);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+            // Reset värden i textfält
+            editTextName.setText("");
+            editTextValue.setText("");
         }
     }
 }
